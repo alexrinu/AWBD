@@ -4,9 +4,11 @@ import lombok.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
-@AllArgsConstructor
+@Entity
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "vehicles")
 public class Vehicle {
 

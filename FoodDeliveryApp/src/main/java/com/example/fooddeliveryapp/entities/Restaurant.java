@@ -3,9 +3,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.Set;
 
-@Data
-@AllArgsConstructor
+@Entity
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "restaurants")
 public class Restaurant {
 

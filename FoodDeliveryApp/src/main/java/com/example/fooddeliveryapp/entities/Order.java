@@ -3,9 +3,11 @@ package com.example.fooddeliveryapp.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
-@AllArgsConstructor
+@Entity
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "orders")
 public class Order {
 
