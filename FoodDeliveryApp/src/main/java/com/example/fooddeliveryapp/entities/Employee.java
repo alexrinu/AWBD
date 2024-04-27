@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @MappedSuperclass
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Employee {

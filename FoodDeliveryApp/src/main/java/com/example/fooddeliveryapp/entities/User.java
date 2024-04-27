@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
 
