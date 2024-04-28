@@ -1,4 +1,5 @@
 package com.example.fooddeliveryapp.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.HashSet;
@@ -21,5 +22,6 @@ public class Vehicle {
     private String plateNumber;
 
     @ManyToMany(mappedBy = "vehicles")
+    @JsonIgnore
     private Set<Driver> drivers = new HashSet<>();
 }

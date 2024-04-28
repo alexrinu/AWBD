@@ -2275,3 +2275,72 @@ java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" becaus
 2024-04-28T19:32:58.875+03:00  INFO 64784 --- [http-nio-8080-exec-6] c.e.f.services.ChefService               : Creating a new driver
 2024-04-28T19:33:55.879+03:00  INFO 64784 --- [http-nio-8080-exec-7] c.e.f.services.ChefService               : Creating a new driver
 2024-04-28T19:34:00.471+03:00  INFO 64784 --- [http-nio-8080-exec-8] c.e.f.services.ChefService               : Creating a new driver
+2024-04-28T19:36:52.552+03:00  INFO 64784 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T19:36:52.555+03:00  INFO 64784 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-28T19:36:52.562+03:00  INFO 64784 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-28T19:36:56.270+03:00  INFO 33956 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Starting FoodDeliveryAppApplication using Java 18 with PID 33956 (C:\GitReps\AWBD\AWBD\FoodDeliveryApp\target\classes started by alexr in C:\GitReps\AWBD\AWBD)
+2024-04-28T19:36:56.272+03:00 DEBUG 33956 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-04-28T19:36:56.272+03:00  INFO 33956 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : The following 1 profile is active: "mysql"
+2024-04-28T19:36:56.309+03:00  INFO 33956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-28T19:36:56.309+03:00  INFO 33956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-28T19:36:56.834+03:00  INFO 33956 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-28T19:36:56.889+03:00  INFO 33956 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 7 JPA repository interfaces.
+2024-04-28T19:36:57.339+03:00  INFO 33956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-04-28T19:36:57.349+03:00  INFO 33956 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-28T19:36:57.350+03:00  INFO 33956 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-04-28T19:36:57.397+03:00  INFO 33956 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-28T19:36:57.398+03:00  INFO 33956 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1089 ms
+2024-04-28T19:36:57.422+03:00  INFO 33956 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-28T19:36:57.567+03:00  INFO 33956 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13ca9ec
+2024-04-28T19:36:57.569+03:00  INFO 33956 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-28T19:36:57.582+03:00  INFO 33956 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/fooddeliveryapp'
+2024-04-28T19:36:57.685+03:00  INFO 33956 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-28T19:36:57.728+03:00  INFO 33956 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-28T19:36:57.754+03:00  INFO 33956 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-28T19:36:57.940+03:00  INFO 33956 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-28T19:36:58.001+03:00  WARN 33956 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-04-28T19:36:58.760+03:00  INFO 33956 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-28T19:36:58.890+03:00  INFO 33956 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T19:36:59.206+03:00  WARN 33956 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-28T19:36:59.470+03:00  INFO 33956 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-28T19:36:59.501+03:00  INFO 33956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-04-28T19:36:59.508+03:00  INFO 33956 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Started FoodDeliveryAppApplication in 3.569 seconds (process running for 4.097)
+2024-04-28T19:37:44.368+03:00  INFO 33956 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T19:37:44.371+03:00  INFO 33956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-28T19:37:44.377+03:00  INFO 33956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-28T19:37:46.050+03:00  INFO 58884 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Starting FoodDeliveryAppApplication using Java 18 with PID 58884 (C:\GitReps\AWBD\AWBD\FoodDeliveryApp\target\classes started by alexr in C:\GitReps\AWBD\AWBD)
+2024-04-28T19:37:46.052+03:00 DEBUG 58884 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-04-28T19:37:46.053+03:00  INFO 58884 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : The following 1 profile is active: "mysql"
+2024-04-28T19:37:46.090+03:00  INFO 58884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-28T19:37:46.090+03:00  INFO 58884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-28T19:37:46.586+03:00  INFO 58884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-28T19:37:46.649+03:00  INFO 58884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 7 JPA repository interfaces.
+2024-04-28T19:37:47.110+03:00  INFO 58884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-04-28T19:37:47.121+03:00  INFO 58884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-28T19:37:47.121+03:00  INFO 58884 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-04-28T19:37:47.163+03:00  INFO 58884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-28T19:37:47.164+03:00  INFO 58884 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1073 ms
+2024-04-28T19:37:47.193+03:00  INFO 58884 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-28T19:37:47.336+03:00  INFO 58884 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3eb86bbb
+2024-04-28T19:37:47.339+03:00  INFO 58884 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-28T19:37:47.346+03:00  INFO 58884 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/fooddeliveryapp'
+2024-04-28T19:37:47.453+03:00  INFO 58884 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-28T19:37:47.496+03:00  INFO 58884 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-28T19:37:47.522+03:00  INFO 58884 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-28T19:37:47.730+03:00  INFO 58884 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-28T19:37:47.788+03:00  WARN 58884 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-04-28T19:37:48.570+03:00  INFO 58884 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-28T19:37:48.729+03:00  INFO 58884 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T19:37:49.048+03:00  WARN 58884 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-28T19:37:49.332+03:00  INFO 58884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-28T19:37:49.362+03:00  INFO 58884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-04-28T19:37:49.369+03:00  INFO 58884 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Started FoodDeliveryAppApplication in 3.671 seconds (process running for 4.308)
+2024-04-28T19:37:55.308+03:00  INFO 58884 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-28T19:37:55.308+03:00  INFO 58884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-28T19:37:55.310+03:00  INFO 58884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-28T19:37:55.470+03:00  INFO 58884 --- [http-nio-8080-exec-2] c.e.f.services.ChefService               : Creating a new driver
+2024-04-28T19:37:55.608+03:00  WARN 58884 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)
+2024-04-28T19:37:55.609+03:00  WARN 58884 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)]
+2024-04-28T19:37:59.482+03:00  INFO 58884 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T19:37:59.485+03:00  INFO 58884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-28T19:37:59.490+03:00  INFO 58884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

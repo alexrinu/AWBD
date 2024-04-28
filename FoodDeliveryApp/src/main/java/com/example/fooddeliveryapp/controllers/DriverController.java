@@ -79,6 +79,7 @@ public class DriverController {
         modelToShow.setHasCarLicense(savedDriver.isHasCarLicense());
         modelToShow.setHasMotorcycleLicense(savedDriver.isHasMotorCycleLicense());
         modelToShow.setYearsOfActivity(savedDriver.getYearsOfActivity());
+        modelToShow.setVehicles(savedDriver.getVehicles());
         return ResponseEntity.ok(modelToShow);
     }
 

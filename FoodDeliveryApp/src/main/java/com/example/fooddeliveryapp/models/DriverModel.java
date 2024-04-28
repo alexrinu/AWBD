@@ -1,5 +1,9 @@
 package com.example.fooddeliveryapp.models;
 
+import com.example.fooddeliveryapp.entities.Vehicle;
+
+import java.util.Set;
+
 public class DriverModel {
     private Long Id;
     private Long restaurantId;
@@ -9,8 +13,16 @@ public class DriverModel {
     private String lastName;
     private Double salary;
     private Integer yearsOfActivity;
-
+    private Set<Vehicle> vehicles;
     public DriverModel() {
+    }
+
+    public Set<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(Set<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 
     public Long getId() {
