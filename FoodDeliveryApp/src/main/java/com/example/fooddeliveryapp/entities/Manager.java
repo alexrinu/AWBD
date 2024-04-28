@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,5 +16,7 @@ public class Manager extends Employee {
     private boolean hasManagementStudies;
 
     @OneToOne(mappedBy = "manager")
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    @JsonIgnore
     private Restaurant restaurant;
 }

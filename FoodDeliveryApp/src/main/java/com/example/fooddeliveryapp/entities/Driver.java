@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.HashSet;
@@ -21,6 +22,7 @@ public class Driver extends Employee {
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
+    @JsonIgnore
     private Restaurant restaurant;
 
     @ManyToMany
