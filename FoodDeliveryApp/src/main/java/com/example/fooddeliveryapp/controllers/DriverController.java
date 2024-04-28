@@ -1,6 +1,7 @@
 package com.example.fooddeliveryapp.controllers;
 
 import com.example.fooddeliveryapp.dtos.*;
+import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.models.*;
 import com.example.fooddeliveryapp.repositories.*;
 import com.example.fooddeliveryapp.entities.*;
@@ -36,9 +37,12 @@ public class DriverController {
 
     @GetMapping("/getDriver/{id}")
     public ResponseEntity<?> getDriverById(@PathVariable Long id) {
-        return driverService.findDriverById(id)
-                .map(driver -> ResponseEntity.ok(driver))
-                .orElse(ResponseEntity.notFound().build());
+//        return driverService.findDriverById(id)
+//                .map(driver -> ResponseEntity.ok(driver))
+//                .orElse(ResponseEntity.notFound().build());
+        Driver driver = driverService.findDriverById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot find Driver with this id: " + id.toString() + "\n"));
+        return ResponseEntity.ok(driver);
     }
 
     @PostMapping("/createDriver")
@@ -84,23 +88,32 @@ public class DriverController {
     }
 
     @PutMapping("/updateDriver/{id}")
-    public ResponseEntity<?> updateDriver(@PathVariable Long id, @RequestBody Driver driver) {
-        return driverService.findDriverById(id)
-                .map(existingDriver -> {
-                    driver.setId(id);
-                    Driver updatedDriver = driverService.saveDriver(driver);
-                    return ResponseEntity.ok(updatedDriver);
-                })
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<?> updateDriver(@PathVariable Long id, @RequestBody Driver updatedDriver) {
+//        return driverService.findDriverById(id)
+//                .map(existingDriver -> {
+//                    driver.setId(id);
+//                    Driver updatedDriver = driverService.saveDriver(driver);
+//                    return ResponseEntity.ok(updatedDriver);
+//                })
+//                .orElse(ResponseEntity.notFound().build());
+        Driver driver = driverService.findDriverById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot update driver with this id: " + id.toString() + "\n"));
+        updatedDriver.setId(id);
+        Driver savedDriver = driverService.saveDriver(updatedDriver);
+        return ResponseEntity.ok(savedDriver);
     }
 
     @DeleteMapping("/deleteDriver/{id}")
     public ResponseEntity<?> deleteDriver(@PathVariable Long id) {
-        return driverService.findDriverById(id)
-                .map(chef -> {
-                    driverService.deleteDriver(id);
-                    return ResponseEntity.ok().build();
-                })
-                .orElse(ResponseEntity.notFound().build());
+//        return driverService.findDriverById(id)
+//                .map(chef -> {
+//                    driverService.deleteDriver(id);
+//                    return ResponseEntity.ok().build();
+//                })
+//                .orElse(ResponseEntity.notFound().build());
+        Driver driver = driverService.findDriverById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot delete Driver with this id: " + id.toString() + "\n"));
+        driverService.deleteDriver(id);
+        return ResponseEntity.ok().build();
     }
 }

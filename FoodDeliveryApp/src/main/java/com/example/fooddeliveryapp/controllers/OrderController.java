@@ -2,8 +2,8 @@ package com.example.fooddeliveryapp.controllers;
 
 import com.example.fooddeliveryapp.dtos.OrderDto;
 import com.example.fooddeliveryapp.entities.*;
+import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.models.OrderModel;
-import com.example.fooddeliveryapp.repositories.OrderRepository;
 import com.example.fooddeliveryapp.repositories.RestaurantRepository;
 import com.example.fooddeliveryapp.repositories.UserRepository;
 import com.example.fooddeliveryapp.services.*;
@@ -37,9 +37,12 @@ public class OrderController {
 
     @GetMapping("/getOrder/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
-        return orderService.findOrderById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+//        return orderService.findOrderById(id)
+//                .map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+        Order order = orderService.findOrderById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot get Order with this id: " + id.toString() + "\n"));
+        return ResponseEntity.ok(order);
     }
 
     @PostMapping("/createOrder")
@@ -67,21 +70,30 @@ public class OrderController {
 
     @PutMapping("/updateOrder/{id}")
     public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order updatedOrder) {
-        return orderService.findOrderById(id)
-                .map(existingOrder -> {
-                    updatedOrder.setId(id); // Ensure the ID is not changed
-                    return ResponseEntity.ok(orderService.saveOrder(updatedOrder));
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+//        return orderService.findOrderById(id)
+//                .map(existingOrder -> {
+//                    updatedOrder.setId(id); // Ensure the ID is not changed
+//                    return ResponseEntity.ok(orderService.saveOrder(updatedOrder));
+//                })
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+        Order order = orderService.findOrderById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot update order with this id: " + id.toString() + "\n"));
+        updatedOrder.setId(id);
+        Order savedOrder = orderService.saveOrder(updatedOrder);
+        return ResponseEntity.ok(savedOrder);
     }
 
     @DeleteMapping("/deleteOrder/{id}")
     public ResponseEntity<?> deleteOrder(@PathVariable Long id) {
-        return orderService.findOrderById(id)
-                .map(order -> {
-                    orderService.deleteOrder(id);
-                    return ResponseEntity.ok().build();
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+//        return orderService.findOrderById(id)
+//                .map(order -> {
+//                    orderService.deleteOrder(id);
+//                    return ResponseEntity.ok().build();
+//                })
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+        Order order = orderService.findOrderById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot delete order with this id: " + id.toString() + "\n"));
+        orderService.deleteOrder(id);
+        return ResponseEntity.ok().build();
     }
 }
