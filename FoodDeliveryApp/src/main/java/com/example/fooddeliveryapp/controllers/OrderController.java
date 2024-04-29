@@ -31,8 +31,14 @@ public class OrderController {
     }
 
     @GetMapping("/getAllOrders")
-    public List<Order> getAllOrders() {
-        return orderService.findAllOrders();
+    public ResponseEntity<List<Order>> getAllOrders() {
+
+//        return orderService.findAllOrders();
+        List<Order> orders = orderService.findAllOrders();
+        if (orders.isEmpty()) {
+            throw new ResourceNotFoundException("List of Orders is empty.");
+        }
+        return ResponseEntity.ok(orders);
     }
 
     @GetMapping("/getOrder/{id}")

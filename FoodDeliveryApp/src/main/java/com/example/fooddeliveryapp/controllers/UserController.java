@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -16,7 +18,13 @@ public class UserController {
 
     @GetMapping("/getAllUsers")
     public ResponseEntity<?> getAllUsers() {
-        return ResponseEntity.ok(userService.findAllUsers());
+
+//        return ResponseEntity.ok(userService.findAllUsers());
+        List<User> users = userService.findAllUsers();
+        if (users.isEmpty()) {
+            throw new ResourceNotFoundException("List of Users is empty.");
+        }
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/getUser/{id}")

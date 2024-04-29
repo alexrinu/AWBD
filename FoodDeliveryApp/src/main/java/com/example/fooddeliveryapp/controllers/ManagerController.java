@@ -27,8 +27,14 @@ public class ManagerController {
     }
 
     @GetMapping("/getAllManagers")
-    public List<Manager> getAllManagers() {
-        return managerService.findAllManagers();
+    public ResponseEntity<List<Manager>> getAllManagers() {
+
+//        return managerService.findAllManagers();
+        List<Manager> managers = managerService.findAllManagers();
+        if (managers.isEmpty()) {
+            throw new ResourceNotFoundException("List of Managers is empty.");
+        }
+        return ResponseEntity.ok(managers);
     }
 
     @GetMapping("/getManager/{id}")

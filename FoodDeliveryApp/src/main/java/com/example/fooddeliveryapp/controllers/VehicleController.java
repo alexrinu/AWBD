@@ -1,26 +1,38 @@
 package com.example.fooddeliveryapp.controllers;
 
+import com.example.fooddeliveryapp.entities.User;
 import com.example.fooddeliveryapp.entities.Vehicle;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
+import com.example.fooddeliveryapp.services.DriverService;
 import com.example.fooddeliveryapp.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/vehicles")
 public class VehicleController {
 
     private final VehicleService vehicleService;
+    private final DriverService driverService;
 
     @Autowired
-    public VehicleController(VehicleService vehicleService) {
+    public VehicleController(VehicleService vehicleService, DriverService driverService) {
         this.vehicleService = vehicleService;
+        this.driverService = driverService;
     }
 
     @GetMapping("/getAllVehicles")
     public ResponseEntity<?> getAllVehicles() {
-        return ResponseEntity.ok(vehicleService.findAllVehicles());
+
+//        return ResponseEntity.ok(vehicleService.findAllVehicles());
+        List<Vehicle> vehicles = vehicleService.findAllVehicles();
+        if (vehicles.isEmpty()) {
+            throw new ResourceNotFoundException("List of Vehicles is empty.");
+        }
+        return ResponseEntity.ok(vehicles);
     }
 
     @GetMapping("/getVehicle/{id}")

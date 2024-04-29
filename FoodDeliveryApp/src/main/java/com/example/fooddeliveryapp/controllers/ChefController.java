@@ -1,6 +1,7 @@
 package com.example.fooddeliveryapp.controllers;
 
 import com.example.fooddeliveryapp.dtos.ChefDto;
+import com.example.fooddeliveryapp.entities.Order;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.models.ChefModel;
 import com.example.fooddeliveryapp.repositories.*;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -30,7 +32,13 @@ public class ChefController {
     // Get all chefs
     @GetMapping("/getAllChefs")
     public ResponseEntity<?> getAllChefs() {
-        return ResponseEntity.ok(chefService.findAllChefs());
+
+//        return ResponseEntity.ok(chefService.findAllChefs());
+        List<Chef> chefs = chefService.findAllChefs();
+        if (chefs.isEmpty()) {
+            throw new ResourceNotFoundException("List of Chefs is empty.");
+        }
+        return ResponseEntity.ok(chefs);
     }
 
     // Get a single chef by ID

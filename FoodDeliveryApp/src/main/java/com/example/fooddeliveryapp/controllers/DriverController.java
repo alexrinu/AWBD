@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -32,7 +33,13 @@ public class DriverController {
 
     @GetMapping("/getAllDrivers")
     public ResponseEntity<?> getAllDrivers() {
-        return ResponseEntity.ok(driverService.findAllDrivers());
+
+//        return ResponseEntity.ok(driverService.findAllDrivers());
+        List<Driver> drivers = driverService.findAllDrivers();
+        if (drivers.isEmpty()) {
+            throw new ResourceNotFoundException("List of Drivers is empty.");
+        }
+        return ResponseEntity.ok(drivers);
     }
 
     @GetMapping("/getDriver/{id}")

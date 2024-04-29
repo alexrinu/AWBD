@@ -1,11 +1,14 @@
 package com.example.fooddeliveryapp.controllers;
 
+import com.example.fooddeliveryapp.entities.Order;
 import com.example.fooddeliveryapp.entities.Restaurant;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/restaurants")
@@ -20,7 +23,13 @@ public class RestaurantController {
 
     @GetMapping("/getAllRestaurants")
     public ResponseEntity<?> getAllRestaurants() {
-        return ResponseEntity.ok(restaurantService.findAllRestaurants());
+
+//        return ResponseEntity.ok(restaurantService.findAllRestaurants());
+        List<Restaurant> restaurants = restaurantService.findAllRestaurants();
+        if (restaurants.isEmpty()) {
+            throw new ResourceNotFoundException("List of Restaurants is empty.");
+        }
+        return ResponseEntity.ok(restaurants);
     }
 
     @GetMapping("/getRestaurant/{id}")
