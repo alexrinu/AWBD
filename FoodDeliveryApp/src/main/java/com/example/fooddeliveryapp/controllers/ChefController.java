@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp.controllers;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import com.example.fooddeliveryapp.dtos.ChefDto;
 import com.example.fooddeliveryapp.entities.Order;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
@@ -9,6 +10,7 @@ import com.example.fooddeliveryapp.entities.Chef;
 import com.example.fooddeliveryapp.entities.Restaurant;
 import com.example.fooddeliveryapp.services.ChefService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +31,14 @@ public class ChefController {
         this.restaurantRepository = restaurantRepository;
     }
 
+    @GetMapping("/getAllChefsPageable")
+    public ResponseEntity<Page<Chef>> getAllChefsPageable(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+        Page<Chef> chefs = chefService.findAllChefs(pageable);
+        if (chefs.isEmpty()) {
+            throw new ResourceNotFoundException("List of Chefs is empty.");
+        }
+        return ResponseEntity.ok(chefs);
+    }
     // Get all chefs
     @GetMapping("/getAllChefs")
     public ResponseEntity<?> getAllChefs() {

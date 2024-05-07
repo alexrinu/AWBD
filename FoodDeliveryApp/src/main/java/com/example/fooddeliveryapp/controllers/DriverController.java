@@ -7,6 +7,9 @@ import com.example.fooddeliveryapp.repositories.*;
 import com.example.fooddeliveryapp.entities.*;
 import com.example.fooddeliveryapp.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +34,17 @@ public class DriverController {
         this.vehicleRepository = vehicleRepository;
     }
 
-    @GetMapping("/getAllDrivers")
+    @GetMapping("/getAllDriversPageable")
+    public ResponseEntity<Page<Driver>> getAllDriversPageable(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+
+//        return ResponseEntity.ok(driverService.findAllDrivers());
+        Page<Driver> drivers = driverService.findAllDrivers(pageable);
+        if (drivers.isEmpty()) {
+            throw new ResourceNotFoundException("List of Drivers is empty.");
+        }
+        return ResponseEntity.ok(drivers);
+    }
+
     public ResponseEntity<?> getAllDrivers() {
 
 //        return ResponseEntity.ok(driverService.findAllDrivers());
@@ -41,6 +54,7 @@ public class DriverController {
         }
         return ResponseEntity.ok(drivers);
     }
+
 
     @GetMapping("/getDriver/{id}")
     public ResponseEntity<?> getDriverById(@PathVariable Long id) {

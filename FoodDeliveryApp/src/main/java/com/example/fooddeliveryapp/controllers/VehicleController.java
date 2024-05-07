@@ -6,6 +6,9 @@ import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.services.DriverService;
 import com.example.fooddeliveryapp.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +25,17 @@ public class VehicleController {
     public VehicleController(VehicleService vehicleService, DriverService driverService) {
         this.vehicleService = vehicleService;
         this.driverService = driverService;
+    }
+
+    @GetMapping("/getAllVehiclesPageable")
+    public ResponseEntity<Page<Vehicle>> getAllVehiclesPageable(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+
+//        return ResponseEntity.ok(vehicleService.findAllVehicles());
+        Page<Vehicle> vehicles = vehicleService.findAllVehicles(pageable);
+        if (vehicles.isEmpty()) {
+            throw new ResourceNotFoundException("List of Vehicles is empty.");
+        }
+        return ResponseEntity.ok(vehicles);
     }
 
     @GetMapping("/getAllVehicles")

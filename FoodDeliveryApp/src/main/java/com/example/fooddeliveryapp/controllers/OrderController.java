@@ -1,5 +1,4 @@
 package com.example.fooddeliveryapp.controllers;
-
 import com.example.fooddeliveryapp.dtos.OrderDto;
 import com.example.fooddeliveryapp.entities.*;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
@@ -8,6 +7,9 @@ import com.example.fooddeliveryapp.repositories.RestaurantRepository;
 import com.example.fooddeliveryapp.repositories.UserRepository;
 import com.example.fooddeliveryapp.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +30,17 @@ public class OrderController {
         this.orderService = orderService;
         this.restaurantRepository = restaurantRepository;
         this.userRepository = userRepository;
+    }
+
+    @GetMapping("/getAllOrdersPageable")
+    public ResponseEntity<Page<Order>> getAllOrdersPageable(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+
+//        return orderService.findAllOrders();
+        Page<Order> orders = orderService.findAllOrders(pageable);
+        if (orders.isEmpty()) {
+            throw new ResourceNotFoundException("List of Orders is empty.");
+        }
+        return ResponseEntity.ok(orders);
     }
 
     @GetMapping("/getAllOrders")

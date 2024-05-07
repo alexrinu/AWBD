@@ -5,6 +5,9 @@ import com.example.fooddeliveryapp.entities.Restaurant;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +24,19 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
+    @GetMapping("/getAllRestaurantsPageable")
+    public ResponseEntity<Page<Restaurant>> getAllRestaurantsPageable(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+
+//        return ResponseEntity.ok(restaurantService.findAllRestaurants());
+        Page<Restaurant> restaurants = restaurantService.findAllRestaurants(pageable);
+        if (restaurants.isEmpty()) {
+            throw new ResourceNotFoundException("List of Restaurants is empty.");
+        }
+        return ResponseEntity.ok(restaurants);
+    }
     @GetMapping("/getAllRestaurants")
     public ResponseEntity<?> getAllRestaurants() {
 
-//        return ResponseEntity.ok(restaurantService.findAllRestaurants());
         List<Restaurant> restaurants = restaurantService.findAllRestaurants();
         if (restaurants.isEmpty()) {
             throw new ResourceNotFoundException("List of Restaurants is empty.");

@@ -4,6 +4,9 @@ import com.example.fooddeliveryapp.entities.User;
 import com.example.fooddeliveryapp.exceptions.ResourceNotFoundException;
 import com.example.fooddeliveryapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,17 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/getAllUsersPageable")
+    public ResponseEntity<Page<User>> getAllUsersPageable(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+
+//        return ResponseEntity.ok(userService.findAllUsers());
+        Page<User> users = userService.findAllUsers(pageable);
+        if (users.isEmpty()) {
+            throw new ResourceNotFoundException("List of Users is empty.");
+        }
+        return ResponseEntity.ok(users);
+    }
 
     @GetMapping("/getAllUsers")
     public ResponseEntity<?> getAllUsers() {

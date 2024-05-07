@@ -5,6 +5,8 @@ import com.example.fooddeliveryapp.repositories.VehicleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class VehicleService {
     @Autowired
     public VehicleService(VehicleRepository vehicleRepository) {
         this.vehicleRepository = vehicleRepository;
+    }
+
+    public Page<Vehicle> findAllVehicles(Pageable pageable) {
+        logger.info("Fetching all vehicles by page.");
+        return vehicleRepository.findAll(pageable);
     }
 
     public List<Vehicle> findAllVehicles() {

@@ -5,6 +5,8 @@ import com.example.fooddeliveryapp.repositories.OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +24,11 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
+    public Page<Order> findAllOrders(Pageable pageable) {
+        logger.info("Fetching all orders by page.");
+        return orderRepository.findAll(pageable);
+    }
+
     public List<Order> findAllOrders() {
         logger.info("Fetching all orders");
         return orderRepository.findAll();
@@ -29,7 +36,7 @@ public class OrderService {
 
     public Optional<Order> findOrderById(Long id) {
         logger.info("Fetching order with ID {}", id);
-        return orderRepository.findById(id);
+        return Optional.ofNullable(orderRepository.findById(id));
     }
 
     public Order saveOrder(Order order) {

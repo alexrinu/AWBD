@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     Restaurant save(Restaurant restaurant);
+    Restaurant findById(long id);
     Restaurant findByName(String name);
     List<Restaurant> findByLocation(String location);
     List<Restaurant> findAll();

@@ -6,6 +6,8 @@ import com.example.fooddeliveryapp.repositories.VehicleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,11 @@ public class UserService {
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    public Page<User> findAllUsers(Pageable pageable) {
+        logger.info("Fetching all users by page.");
+        return userRepository.findAll(pageable);
     }
 
     public List<User> findAllUsers() {
