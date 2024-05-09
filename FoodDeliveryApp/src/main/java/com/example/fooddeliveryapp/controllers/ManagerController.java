@@ -40,6 +40,7 @@ public class ManagerController {
         return ResponseEntity.ok(managers);
     }
 
+    @GetMapping("/getAllManagers")
     public ResponseEntity<List<Manager>> getAllManagers() {
 
 //        return managerService.findAllManagers();
@@ -83,6 +84,7 @@ public class ManagerController {
         modelToShow.setId(savedManager.getId());
         modelToShow.setFirstName(savedManager.getFirstName());
         modelToShow.setLastName(savedManager.getLastName());
+        modelToShow.setSalary(savedManager.getSalary());
         modelToShow.setRestaurantId(restaurant.getId());
         modelToShow.setHasManagementStudies(managerDto.getHasManagementStudies());
         modelToShow.setYearsOfActivity(savedManager.getYearsOfActivity());

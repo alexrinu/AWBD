@@ -32,4 +32,14 @@ public class Driver extends Employee {
             inverseJoinColumns = @JoinColumn(name = "vehicle_id", referencedColumnName = "id_vehicle")
     )
     private Set<Vehicle> vehicles = new HashSet<>();
+
+    public Driver(Long id, String firstName, String lastName, Integer yearsOfActivity, double salary, boolean hasMotorCycleLicense, boolean hasCarLicense, Restaurant restaurant, Set<Vehicle> vehicles)
+    {
+        super(id, firstName, lastName, yearsOfActivity, salary);
+        this.hasMotorCycleLicense = hasMotorCycleLicense;
+        this.hasCarLicense = hasCarLicense;
+        this.restaurant = restaurant;
+        this.vehicles = vehicles;
+
+    }
 }

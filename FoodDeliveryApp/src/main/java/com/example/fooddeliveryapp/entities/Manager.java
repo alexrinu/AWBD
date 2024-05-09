@@ -19,4 +19,9 @@ public class Manager extends Employee {
     @JoinColumn(name = "restaurant_id", nullable = false)
     @JsonIgnore
     private Restaurant restaurant;
+
+    public Manager(String firstName, String lastName, int yearsOfActivity, double salary, boolean hasManagementStudies) {
+        super(null, firstName, lastName, yearsOfActivity, salary);
+        this.hasManagementStudies = hasManagementStudies;
+    }
 }

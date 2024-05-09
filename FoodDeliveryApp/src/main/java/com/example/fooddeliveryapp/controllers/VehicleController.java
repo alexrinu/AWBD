@@ -75,7 +75,7 @@ public class VehicleController {
 //                })
 //                .orElseGet(() -> ResponseEntity.notFound().build());
         Vehicle vehicle = vehicleService.findVehicleById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Cannot update vehicle with this id:  " + id.toString() + "\n"));
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot update vehicle with this id: " + id.toString()));
         updatedVehicle.setId(id);
         Vehicle savedVehicle = vehicleService.saveVehicle(updatedVehicle);
         return ResponseEntity.ok(savedVehicle);
@@ -90,7 +90,7 @@ public class VehicleController {
 //                })
 //                .orElseGet(() -> ResponseEntity.notFound().build());
         Vehicle vehicle = vehicleService.findVehicleById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Cannot delete vehicle with this id: " + id.toString() + "\n"));
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot delete vehicle with this id: " + id.toString()));
         vehicleService.deleteVehicle(id);
         return ResponseEntity.ok().build();
     }

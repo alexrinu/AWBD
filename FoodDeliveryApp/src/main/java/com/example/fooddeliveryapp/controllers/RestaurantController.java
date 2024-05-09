@@ -78,14 +78,9 @@ public class RestaurantController {
 
     @DeleteMapping("/deleteRestaurant/{id}")
     public ResponseEntity<?> deleteRestaurant(@PathVariable Long id) {
-//        return restaurantService.findRestaurantById(id)
-//                .map(vehicle -> {
-//                    restaurantService.deleteRestaurant(id);
-//                    return ResponseEntity.ok().build();
-//                })
-//                .orElseGet(() -> ResponseEntity.notFound().build());
-        Restaurant restaurant = restaurantService.findRestaurantById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Cannot delete Restaurant with this id: " + id.toString() + "\n"));
+
+        restaurantService.findRestaurantById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot delete Restaurant with this id: " + id.toString()));
         restaurantService.deleteRestaurant(id);
         return ResponseEntity.ok().build();
     }

@@ -45,6 +45,7 @@ public class DriverController {
         return ResponseEntity.ok(drivers);
     }
 
+    @GetMapping("/getAllDrivers")
     public ResponseEntity<?> getAllDrivers() {
 
 //        return ResponseEntity.ok(driverService.findAllDrivers());
@@ -100,6 +101,7 @@ public class DriverController {
         modelToShow.setId(savedDriver.getId());
         modelToShow.setFirstName(savedDriver.getFirstName());
         modelToShow.setLastName(savedDriver.getLastName());
+        modelToShow.setSalary(savedDriver.getSalary());
         modelToShow.setRestaurantId(restaurant.getId());
         modelToShow.setHasCarLicense(savedDriver.isHasCarLicense());
         modelToShow.setHasMotorcycleLicense(savedDriver.isHasMotorCycleLicense());
@@ -120,6 +122,7 @@ public class DriverController {
         Driver driver = driverService.findDriverById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Cannot update driver with this id: " + id.toString() + "\n"));
         updatedDriver.setId(id);
+        updatedDriver.setRestaurant(driver.getRestaurant());
         Driver savedDriver = driverService.saveDriver(updatedDriver);
         return ResponseEntity.ok(savedDriver);
     }

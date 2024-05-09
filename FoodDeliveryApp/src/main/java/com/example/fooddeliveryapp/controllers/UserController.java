@@ -67,7 +67,7 @@ public class UserController {
 //                })
 //                .orElseGet(() -> ResponseEntity.notFound().build());
         User user = userService.findUserById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Cannot find User with this id:  " + id.toString() + "\n"));
+                .orElseThrow(() -> new ResourceNotFoundException("Cannot find User with this id: " + id.toString()));
         updatedUser.setId(id);
         User savedUser = userService.saveUser(updatedUser);
         return ResponseEntity.ok(savedUser);

@@ -36,4 +36,5 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant")
     private Set<Order> orders;
+
 }
