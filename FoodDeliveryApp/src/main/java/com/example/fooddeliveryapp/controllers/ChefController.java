@@ -88,6 +88,7 @@ public class ChefController {
         modelToShow.setId(savedChef.getId());
         modelToShow.setFirstName(savedChef.getFirstName());
         modelToShow.setLastName(savedChef.getLastName());
+        modelToShow.setSalary(savedChef.getSalary());
         modelToShow.setRestaurantId(restaurant.getId());
         modelToShow.setSuperiorStudies(savedChef.isSuperiorStudies());
         modelToShow.setYearsOfActivity(savedChef.getYearsOfActivity());
