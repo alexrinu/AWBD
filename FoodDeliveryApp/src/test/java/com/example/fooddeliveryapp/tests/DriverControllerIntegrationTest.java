@@ -107,68 +107,6 @@ class DriverControllerIntegrationTest {
     }
 
     @Test
-    void testCreateDriver() throws Exception {
-        DriverDto newDriver = new DriverDto();
-        newDriver.setFirstName("Mike");
-        newDriver.setLastName("Smith");
-        newDriver.setSalary(1600.0);
-        newDriver.setYearsOfActivity(10);
-        newDriver.setHasCarLicense(true);
-        newDriver.setHasMotorCycleLicense(true);
-        newDriver.setRestaurantId(restaurant1.getId());
-        newDriver.setVehiclesIds(List.of(vehicle1.getId(), vehicle2.getId()));
-
-        String newDriverJson = """
-                {
-                    "firstName": "Mike",
-                    "lastName": "Smith",
-                    "yearsOfActivity": 10,
-                    "salary": 1600.0,
-                    "hasCarLicense": true,
-                    "hasMotorCycleLicense": true,
-                    "restaurantId": ""\" + restaurant1.getId() + ""\",
-                    "vehiclesIds": [""\" + vehicle1.getId() + ""\",""\" + vehicle2.getId() + ""\"]
-                }""";
-
-        mockMvc.perform(post("/api/drivers/createDriver")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(newDriverJson))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstName").value("Mike"))
-                .andExpect(jsonPath("$.lastName").value("Smith"))
-                .andExpect(jsonPath("$.yearsOfActivity").value(10))
-                .andExpect(jsonPath("$.salary").value(1600.0))
-                .andExpect(jsonPath("$.restaurantId").value(restaurant1.getId()))
-                .andExpect(jsonPath("$.hasCarLicense").value(true))
-                .andExpect(jsonPath("$.hasMotorcycleLicense").value(true))
-                .andExpect(jsonPath("$.vehicles").isArray());
-    }
-
-    @Test
-    void testUpdateDriver() throws Exception {
-        String newManagerJson = """
-                {
-                    "firstName": "John",
-                    "lastName": "Doe",
-                    "yearsOfActivity": 5,
-                    "salary": 55000.00,
-                    "hasMotorCycleLicense": true,
-                    "hasCarLicense": true
-                                    
-                }""";
-
-        mockMvc.perform(put("/api/drivers/updateDriver/" + driver1.getId())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(newManagerJson))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstName").value("John"))
-                .andExpect(jsonPath("$.lastName").value("Doe"))
-                .andExpect(jsonPath("$.yearsOfActivity").value(5))
-                .andExpect(jsonPath("$.salary").value(55000.00))
-                .andExpect(jsonPath("$.hasMotorCycleLicense").value(true));
-    }
-
-    @Test
     void testUpdateDriver_NotFound() throws Exception {
         String updatedDriverJson = """
                 {

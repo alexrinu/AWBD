@@ -812,3 +812,33 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable repre
 2024-05-09T21:27:13.126+03:00  WARN 1756 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
 2024-05-09T21:27:13.127+03:00  INFO 1756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-05-09T21:27:13.132+03:00  INFO 1756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-12T18:23:30.350+03:00  INFO 12068 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Starting FoodDeliveryAppApplication using Java 18 with PID 12068 (C:\GitReps\AWBD\AWBD\FoodDeliveryApp\target\classes started by alexr in C:\GitReps\AWBD\AWBD)
+2024-05-12T18:23:30.351+03:00 DEBUG 12068 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-12T18:23:30.352+03:00  INFO 12068 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : The following 1 profile is active: "mysql"
+2024-05-12T18:23:30.390+03:00  INFO 12068 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-12T18:23:30.391+03:00  INFO 12068 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-12T18:23:31.217+03:00  INFO 12068 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-12T18:23:31.287+03:00  INFO 12068 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 7 JPA repository interfaces.
+2024-05-12T18:23:31.849+03:00  INFO 12068 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-12T18:23:31.864+03:00  INFO 12068 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-12T18:23:31.864+03:00  INFO 12068 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-12T18:23:31.930+03:00  INFO 12068 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-12T18:23:31.931+03:00  INFO 12068 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1540 ms
+2024-05-12T18:23:31.965+03:00  INFO 12068 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-12T18:23:32.158+03:00  INFO 12068 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1417b707
+2024-05-12T18:23:32.160+03:00  INFO 12068 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-12T18:23:32.166+03:00  INFO 12068 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/fooddeliveryapp'
+2024-05-12T18:23:32.292+03:00  INFO 12068 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-12T18:23:32.355+03:00  INFO 12068 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-12T18:23:32.391+03:00  INFO 12068 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-12T18:23:32.639+03:00  INFO 12068 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-12T18:23:32.708+03:00  WARN 12068 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-12T18:23:33.579+03:00  INFO 12068 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-12T18:23:33.774+03:00  INFO 12068 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T18:23:34.137+03:00  WARN 12068 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-12T18:23:34.448+03:00  INFO 12068 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-12T18:23:34.482+03:00  INFO 12068 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-12T18:23:34.489+03:00  INFO 12068 --- [restartedMain] c.e.f.FoodDeliveryAppApplication         : Started FoodDeliveryAppApplication in 4.496 seconds (process running for 6.049)
+2024-05-12T18:23:40.190+03:00  INFO 12068 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T18:23:40.192+03:00  INFO 12068 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-12T18:23:40.196+03:00  INFO 12068 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

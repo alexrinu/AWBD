@@ -348,3 +348,65 @@
 2024-05-10T11:02:09.040+03:00  INFO 14868 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-05-10T11:02:09.049+03:00  INFO 14868 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-05-10T11:02:09.051+03:00  INFO 14868 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-12T18:24:22.725+03:00  INFO 36296 --- [main] c.e.f.t.DriverControllerIntegrationTest  : Starting DriverControllerIntegrationTest using Java 18 with PID 36296 (started by alexr in C:\GitReps\AWBD\AWBD\FoodDeliveryApp)
+2024-05-12T18:24:22.726+03:00 DEBUG 36296 --- [main] c.e.f.t.DriverControllerIntegrationTest  : Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-12T18:24:22.727+03:00  INFO 36296 --- [main] c.e.f.t.DriverControllerIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
+2024-05-12T18:24:23.401+03:00  INFO 36296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-12T18:24:23.468+03:00  INFO 36296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
+2024-05-12T18:24:23.942+03:00  INFO 36296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-12T18:24:24.239+03:00  INFO 36296 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:7c445e0e-0886-4eb4-ba9e-6a8ec3c15342 user=SA
+2024-05-12T18:24:24.241+03:00  INFO 36296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-12T18:24:24.289+03:00  INFO 36296 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-12T18:24:24.353+03:00  INFO 36296 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-12T18:24:24.391+03:00  INFO 36296 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-12T18:24:24.676+03:00  INFO 36296 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-12T18:24:25.719+03:00  INFO 36296 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-12T18:24:25.772+03:00  INFO 36296 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T18:24:26.445+03:00  WARN 36296 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-12T18:24:27.079+03:00  INFO 36296 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-12T18:24:27.080+03:00  INFO 36296 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-12T18:24:27.082+03:00  INFO 36296 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-05-12T18:24:27.127+03:00  INFO 36296 --- [main] c.e.f.t.DriverControllerIntegrationTest  : Started DriverControllerIntegrationTest in 4.688 seconds (process running for 5.83)
+2024-05-12T18:24:27.524+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 1
+2024-05-12T18:24:27.642+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 999
+2024-05-12T18:24:27.709+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 5
+2024-05-12T18:24:27.710+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Updating driver with ID 5
+2024-05-12T18:24:27.742+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 999
+2024-05-12T18:24:27.767+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching all drivers by page.
+2024-05-12T18:24:27.826+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 11
+2024-05-12T18:24:27.828+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Deleting driver with ID 11
+2024-05-12T18:24:27.852+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching all drivers
+2024-05-12T18:24:27.876+03:00  INFO 36296 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 999
+2024-05-12T18:24:27.909+03:00  INFO 36296 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T18:24:27.923+03:00  INFO 36296 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-12T18:24:27.926+03:00  INFO 36296 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-12T18:24:46.735+03:00  INFO 31412 --- [main] c.e.f.t.DriverControllerIntegrationTest  : Starting DriverControllerIntegrationTest using Java 18 with PID 31412 (started by alexr in C:\GitReps\AWBD\AWBD\FoodDeliveryApp)
+2024-05-12T18:24:46.736+03:00 DEBUG 31412 --- [main] c.e.f.t.DriverControllerIntegrationTest  : Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-12T18:24:46.737+03:00  INFO 31412 --- [main] c.e.f.t.DriverControllerIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
+2024-05-12T18:24:47.367+03:00  INFO 31412 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-12T18:24:47.437+03:00  INFO 31412 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 7 JPA repository interfaces.
+2024-05-12T18:24:47.973+03:00  INFO 31412 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-12T18:24:48.231+03:00  INFO 31412 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:ffbfe7d9-7da5-4a66-97b7-6c58b6715a2c user=SA
+2024-05-12T18:24:48.232+03:00  INFO 31412 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-12T18:24:48.285+03:00  INFO 31412 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-12T18:24:48.357+03:00  INFO 31412 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-12T18:24:48.396+03:00  INFO 31412 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-12T18:24:48.728+03:00  INFO 31412 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-12T18:24:49.798+03:00  INFO 31412 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-12T18:24:49.851+03:00  INFO 31412 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T18:24:50.539+03:00  WARN 31412 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-12T18:24:51.064+03:00  INFO 31412 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-12T18:24:51.064+03:00  INFO 31412 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-12T18:24:51.066+03:00  INFO 31412 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-05-12T18:24:51.101+03:00  INFO 31412 --- [main] c.e.f.t.DriverControllerIntegrationTest  : Started DriverControllerIntegrationTest in 4.654 seconds (process running for 5.807)
+2024-05-12T18:24:51.491+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 1
+2024-05-12T18:24:51.594+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 999
+2024-05-12T18:24:51.618+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 999
+2024-05-12T18:24:51.644+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching all drivers by page.
+2024-05-12T18:24:51.734+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 9
+2024-05-12T18:24:51.735+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Deleting driver with ID 9
+2024-05-12T18:24:51.753+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching all drivers
+2024-05-12T18:24:51.818+03:00  INFO 31412 --- [main] c.e.f.services.ChefService               : Fetching driver with ID 999
+2024-05-12T18:24:51.829+03:00  INFO 31412 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T18:24:51.839+03:00  INFO 31412 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-12T18:24:51.840+03:00  INFO 31412 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
